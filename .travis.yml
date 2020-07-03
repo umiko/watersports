@@ -1,6 +1,6 @@
 ---
 language: cpp
-&dist: bionic
+dist: &dist bionic
 os: linux
 compiler: gcc
 before_install:
