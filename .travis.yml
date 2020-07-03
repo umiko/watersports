@@ -10,5 +10,5 @@ before_install:
   - sudo apt-get -q update
   - sudo apt-get -y install cmake
 script:
-  - gcc -v && /usr/local/bin/cmake --version
+  - gcc -v && cmake --version
 ...
