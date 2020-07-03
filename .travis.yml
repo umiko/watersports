@@ -1,0 +1,13 @@
+---
+language: cpp
+dist: bionic
+os: linux
+compiler: gcc
+before_install:
+  - wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+  - sudo add-apt-repository -y 'deb https://apt.kitware.com/ubuntu/ {{dist}} main'
+  - sudo apt-get -q update
+  - sudo apt-get -y upgrade cmake
+script:
+  - gcc -v && cmake --version
+...
