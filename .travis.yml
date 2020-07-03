@@ -3,12 +3,19 @@ language: cpp
 dist: bionic
 os: linux
 compiler: gcc
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://apt.kitware.com/ubuntu/ bionic main'
+      - key_url: https://apt.kitware.com/keys/kitware-archive-latest.asc
+    packages: 
+      - cmake
 before_install:
-  - sudo apt-get -y remove cmake
-  - wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
-  - sudo add-apt-repository -y 'deb https://apt.kitware.com/ubuntu/ bionic main'
+  #- wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+  #- sudo add-apt-repository -y 'deb https://apt.kitware.com/ubuntu/ bionic main'
   - sudo apt-get -q update
   - sudo apt-get -y install cmake
 script:
   - gcc -v && cmake --version
+  - 
 ...
